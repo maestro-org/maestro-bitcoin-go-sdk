@@ -1,8 +1,8 @@
-# Maestro Bitcoin Go API Library
+# Maestro Go API Library
 
 <a href="https://pkg.go.dev/github.com/maestro-org/maestro-bitcoin-go-sdk"><img src="https://pkg.go.dev/badge/github.com/maestro-org/maestro-bitcoin-go-sdk.svg" alt="Go Reference"></a>
 
-The Maestro Bitcoin Go library provides convenient access to [the Maestro Bitcoin REST
+The Maestro Go library provides convenient access to [the Maestro REST
 API](https://docs.gomaestro.org/) from applications written in Go. The full API of this library can be found in [api.md](api.md).
 
 It is generated with [Stainless](https://www.stainlessapi.com/).
@@ -50,8 +50,8 @@ import (
 
 func main() {
 	client := maestrobitcoingosdk.NewClient(
-		option.WithAPIKey("My API Key"),      // defaults to os.LookupEnv("API_KEY")
-		option.WithEnvironmentEnvironment1(), // defaults to option.WithEnvironmentProduction()
+		option.WithAPIKey("My API Key"), // defaults to os.LookupEnv("API_KEY")
+		option.WithEnvironmentTestnet(), // defaults to option.WithEnvironmentMainnet()
 	)
 	timestampedBlockchainInfo, err := client.General.Info.Get(context.TODO())
 	if err != nil {
