@@ -51,7 +51,7 @@ import (
 func main() {
 	client := maestrobitcoingosdk.NewClient(
 		option.WithAPIKey("My API Key"), // defaults to os.LookupEnv("API_KEY")
-		option.WithEnvironmentTestnet(), // defaults to option.WithEnvironmentMainnet()
+		option.WithEnvironmentMainnet(), // defaults to option.WithEnvironmentMainnet()
 	)
 	timestampedBlockchainInfo, err := client.General.Info.Get(context.TODO())
 	if err != nil {
