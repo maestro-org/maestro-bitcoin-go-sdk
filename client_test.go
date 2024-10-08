@@ -42,7 +42,7 @@ func TestUserAgentHeader(t *testing.T) {
 		"REPLACE_ME",
 		maestrobitcoingosdk.AddressUtxoListParams{},
 	)
-	if userAgent != fmt.Sprintf("MaestroDappPlatform/Go %s", internal.PackageVersion) {
+	if userAgent != fmt.Sprintf("Maestro/Go %s", internal.PackageVersion) {
 		t.Errorf("Expected User-Agent to be correct, but got: %#v", userAgent)
 	}
 }
