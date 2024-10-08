@@ -12,8 +12,8 @@ import (
 )
 
 // Client creates a struct with services and top level methods that help with
-// interacting with the Maestro API. You should not instantiate this client
-// directly, and instead use the [NewClient] method instead.
+// interacting with the Maestro Dapp Platform API. You should not instantiate this
+// client directly, and instead use the [NewClient] method instead.
 type Client struct {
 	Options         []option.RequestOption
 	Addresses       *AddressService
