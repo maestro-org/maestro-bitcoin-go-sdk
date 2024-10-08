@@ -4,12 +4,12 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/stainless-sdks/maestro-bitcoin-go"
-	"github.com/stainless-sdks/maestro-bitcoin-go/option"
+	maestrobitcoingosdk "github.com/maestro-org/maestro-bitcoin-go-sdk"
+	"github.com/maestro-org/maestro-bitcoin-go-sdk/option"
 )
 
 func main() {
-	client := maestrobitcoin.NewClient(
+	client := maestrobitcoingosdk.NewClient(
 		option.WithAPIKey("My API Key"), // defaults to os.LookupEnv("API_KEY")
 	)
 	timestampedBlockchainInfo, err := client.General.Info.Get(context.TODO())
