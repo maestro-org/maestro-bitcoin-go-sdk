@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.1.0-alpha.2 (2024-10-08)
+
+Full Changelog: [v0.1.0-alpha.1...v0.1.0-alpha.2](https://github.com/maestro-org/maestro-bitcoin-go-sdk/compare/v0.1.0-alpha.1...v0.1.0-alpha.2)
+
+### Features
+
+* shut off tests and use mainnet in example ([3025413](https://github.com/maestro-org/maestro-bitcoin-go-sdk/commit/3025413884422b58e1743bf8fb2d05a7dd619e24))
+* Update README.md ([a5b51f2](https://github.com/maestro-org/maestro-bitcoin-go-sdk/commit/a5b51f2f9682d2652ebb8f4e3dc54af72894172d))
+
 ## 0.1.0-alpha.1 (2024-10-08)
 
 Full Changelog: [v0.0.1-alpha.0...v0.1.0-alpha.1](https://github.com/maestro-org/maestro-bitcoin-go-sdk/compare/v0.0.1-alpha.0...v0.1.0-alpha.1)
