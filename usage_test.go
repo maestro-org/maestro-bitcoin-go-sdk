@@ -24,9 +24,9 @@ func TestUsage(t *testing.T) {
 		option.WithBaseURL(baseURL),
 		option.WithAPIKey("My API Key"),
 	)
-	timestampedBlockchainInfo, err := client.General.Info.Get(context.TODO())
+	timestampedBlock, err := client.Blocks.Latest.Get(context.TODO())
 	if err != nil {
 		t.Error(err)
 	}
-	t.Logf("%+v\n", timestampedBlockchainInfo.Data)
+	t.Logf("%+v\n", timestampedBlock.Data)
 }
