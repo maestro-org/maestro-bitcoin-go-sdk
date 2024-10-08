@@ -1,6 +1,6 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-package maestrobitcoin_test
+package maestrobitcoingosdk_test
 
 import (
 	"context"
@@ -21,23 +21,23 @@ func TestAssetRuneUtxoListWithOptionalParams(t *testing.T) {
 	if !testutil.CheckTestServer(t, baseURL) {
 		return
 	}
-	client := maestrobitcoin.NewClient(
+	client := maestrobitcoingosdk.NewClient(
 		option.WithBaseURL(baseURL),
 		option.WithAPIKey("My API Key"),
 	)
 	_, err := client.Assets.Runes.Utxos.List(
 		context.TODO(),
 		"2519999:31",
-		maestrobitcoin.AssetRuneUtxoListParams{
-			Count:  maestrobitcoin.F(int64(0)),
-			Cursor: maestrobitcoin.F("cursor"),
-			From:   maestrobitcoin.F(int64(0)),
-			Order:  maestrobitcoin.F(maestrobitcoin.AssetRuneUtxoListParamsOrderAsc),
-			To:     maestrobitcoin.F(int64(0)),
+		maestrobitcoingosdk.AssetRuneUtxoListParams{
+			Count:  maestrobitcoingosdk.F(int64(0)),
+			Cursor: maestrobitcoingosdk.F("cursor"),
+			From:   maestrobitcoingosdk.F(int64(0)),
+			Order:  maestrobitcoingosdk.F(maestrobitcoingosdk.AssetRuneUtxoListParamsOrderAsc),
+			To:     maestrobitcoingosdk.F(int64(0)),
 		},
 	)
 	if err != nil {
-		var apierr *maestrobitcoin.Error
+		var apierr *maestrobitcoingosdk.Error
 		if errors.As(err, &apierr) {
 			t.Log(string(apierr.DumpRequest(true)))
 		}

@@ -1,6 +1,6 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-package maestrobitcoin_test
+package maestrobitcoingosdk_test
 
 import (
 	"context"
@@ -21,13 +21,13 @@ func TestTransactionGet(t *testing.T) {
 	if !testutil.CheckTestServer(t, baseURL) {
 		return
 	}
-	client := maestrobitcoin.NewClient(
+	client := maestrobitcoingosdk.NewClient(
 		option.WithBaseURL(baseURL),
 		option.WithAPIKey("My API Key"),
 	)
 	err := client.Transactions.Get(context.TODO(), "tx_hash")
 	if err != nil {
-		var apierr *maestrobitcoin.Error
+		var apierr *maestrobitcoingosdk.Error
 		if errors.As(err, &apierr) {
 			t.Log(string(apierr.DumpRequest(true)))
 		}
@@ -43,15 +43,15 @@ func TestTransactionSubmit(t *testing.T) {
 	if !testutil.CheckTestServer(t, baseURL) {
 		return
 	}
-	client := maestrobitcoin.NewClient(
+	client := maestrobitcoingosdk.NewClient(
 		option.WithBaseURL(baseURL),
 		option.WithAPIKey("My API Key"),
 	)
-	_, err := client.Transactions.Submit(context.TODO(), maestrobitcoin.TransactionSubmitParams{
+	_, err := client.Transactions.Submit(context.TODO(), maestrobitcoingosdk.TransactionSubmitParams{
 		Body: map[string]interface{}{},
 	})
 	if err != nil {
-		var apierr *maestrobitcoin.Error
+		var apierr *maestrobitcoingosdk.Error
 		if errors.As(err, &apierr) {
 			t.Log(string(apierr.DumpRequest(true)))
 		}
