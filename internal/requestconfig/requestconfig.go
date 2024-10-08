@@ -17,10 +17,10 @@ import (
 	"strings"
 	"time"
 
-	"github.com/stainless-sdks/maestro-bitcoin-go/internal"
-	"github.com/stainless-sdks/maestro-bitcoin-go/internal/apierror"
-	"github.com/stainless-sdks/maestro-bitcoin-go/internal/apiform"
-	"github.com/stainless-sdks/maestro-bitcoin-go/internal/apiquery"
+	"github.com/maestro-org/maestro-bitcoin-go-sdk/internal"
+	"github.com/maestro-org/maestro-bitcoin-go-sdk/internal/apierror"
+	"github.com/maestro-org/maestro-bitcoin-go-sdk/internal/apiform"
+	"github.com/maestro-org/maestro-bitcoin-go-sdk/internal/apiquery"
 )
 
 func getDefaultHeaders() map[string]string {

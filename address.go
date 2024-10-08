@@ -3,7 +3,7 @@
 package maestrobitcoin
 
 import (
-	"github.com/stainless-sdks/maestro-bitcoin-go/option"
+	"github.com/maestro-org/maestro-bitcoin-go-sdk/option"
 )
 
 // AddressService contains methods and other services that help with interacting
