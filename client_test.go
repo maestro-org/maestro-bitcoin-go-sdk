@@ -38,7 +38,7 @@ func TestUserAgentHeader(t *testing.T) {
 		}),
 	)
 	client.General.Info.Get(context.Background())
-	if userAgent != fmt.Sprintf("MaestroBitcoin/Go %s", internal.PackageVersion) {
+	if userAgent != fmt.Sprintf("Maestro/Go %s", internal.PackageVersion) {
 		t.Errorf("Expected User-Agent to be correct, but got: %#v", userAgent)
 	}
 }
