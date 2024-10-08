@@ -7,8 +7,8 @@ import (
 	"net/http"
 	"os"
 
-	"github.com/stainless-sdks/maestro-bitcoin-go/internal/requestconfig"
-	"github.com/stainless-sdks/maestro-bitcoin-go/option"
+	"github.com/maestro-org/maestro-bitcoin-go-sdk/internal/requestconfig"
+	"github.com/maestro-org/maestro-bitcoin-go-sdk/option"
 )
 
 // Client creates a struct with services and top level methods that help with

@@ -12,7 +12,7 @@ import (
 
 	"github.com/tidwall/sjson"
 
-	"github.com/stainless-sdks/maestro-bitcoin-go/internal/param"
+	"github.com/maestro-org/maestro-bitcoin-go-sdk/internal/param"
 )
 
 var encoders sync.Map // map[encoderEntry]encoderFunc

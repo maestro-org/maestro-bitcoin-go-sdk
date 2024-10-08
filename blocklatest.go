@@ -6,8 +6,8 @@ import (
 	"context"
 	"net/http"
 
-	"github.com/stainless-sdks/maestro-bitcoin-go/internal/requestconfig"
-	"github.com/stainless-sdks/maestro-bitcoin-go/option"
+	"github.com/maestro-org/maestro-bitcoin-go-sdk/internal/requestconfig"
+	"github.com/maestro-org/maestro-bitcoin-go-sdk/option"
 )
 
 // BlockLatestService contains methods and other services that help with
