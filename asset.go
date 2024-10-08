@@ -1,6 +1,6 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-package maestrobitcoin
+package maestrobitcoingosdk
 
 import (
 	"github.com/maestro-org/maestro-bitcoin-go-sdk/option"

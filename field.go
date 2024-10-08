@@ -1,4 +1,4 @@
-package maestrobitcoin
+package maestrobitcoingosdk
 
 import (
 	"github.com/maestro-org/maestro-bitcoin-go-sdk/internal/param"

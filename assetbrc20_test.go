@@ -1,6 +1,6 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-package maestrobitcoin_test
+package maestrobitcoingosdk_test
 
 import (
 	"context"
@@ -21,13 +21,13 @@ func TestAssetBrc20Get(t *testing.T) {
 	if !testutil.CheckTestServer(t, baseURL) {
 		return
 	}
-	client := maestrobitcoin.NewClient(
+	client := maestrobitcoingosdk.NewClient(
 		option.WithBaseURL(baseURL),
 		option.WithAPIKey("My API Key"),
 	)
 	_, err := client.Assets.Brc20.Get(context.TODO(), "FCTB")
 	if err != nil {
-		var apierr *maestrobitcoin.Error
+		var apierr *maestrobitcoingosdk.Error
 		if errors.As(err, &apierr) {
 			t.Log(string(apierr.DumpRequest(true)))
 		}
@@ -43,16 +43,16 @@ func TestAssetBrc20ListWithOptionalParams(t *testing.T) {
 	if !testutil.CheckTestServer(t, baseURL) {
 		return
 	}
-	client := maestrobitcoin.NewClient(
+	client := maestrobitcoingosdk.NewClient(
 		option.WithBaseURL(baseURL),
 		option.WithAPIKey("My API Key"),
 	)
-	_, err := client.Assets.Brc20.List(context.TODO(), maestrobitcoin.AssetBrc20ListParams{
-		Count:  maestrobitcoin.F(int64(0)),
-		Cursor: maestrobitcoin.F("cursor"),
+	_, err := client.Assets.Brc20.List(context.TODO(), maestrobitcoingosdk.AssetBrc20ListParams{
+		Count:  maestrobitcoingosdk.F(int64(0)),
+		Cursor: maestrobitcoingosdk.F("cursor"),
 	})
 	if err != nil {
-		var apierr *maestrobitcoin.Error
+		var apierr *maestrobitcoingosdk.Error
 		if errors.As(err, &apierr) {
 			t.Log(string(apierr.DumpRequest(true)))
 		}
