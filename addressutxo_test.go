@@ -1,6 +1,6 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-package maestrobitcoin_test
+package maestrobitcoingosdk_test
 
 import (
 	"context"
@@ -21,26 +21,26 @@ func TestAddressUtxoListWithOptionalParams(t *testing.T) {
 	if !testutil.CheckTestServer(t, baseURL) {
 		return
 	}
-	client := maestrobitcoin.NewClient(
+	client := maestrobitcoingosdk.NewClient(
 		option.WithBaseURL(baseURL),
 		option.WithAPIKey("My API Key"),
 	)
 	_, err := client.Addresses.Utxos.List(
 		context.TODO(),
 		"tb1qphcdyah2e4vtpxn56hsz3p6kapg90pl4x525kc",
-		maestrobitcoin.AddressUtxoListParams{
-			Count:                maestrobitcoin.F(int64(0)),
-			Cursor:               maestrobitcoin.F("cursor"),
-			ExcludeMetaprotocols: maestrobitcoin.F(true),
-			FilterDust:           maestrobitcoin.F(true),
-			FilterDustThreshold:  maestrobitcoin.F(int64(0)),
-			From:                 maestrobitcoin.F(int64(0)),
-			Order:                maestrobitcoin.F(maestrobitcoin.AddressUtxoListParamsOrderAsc),
-			To:                   maestrobitcoin.F(int64(0)),
+		maestrobitcoingosdk.AddressUtxoListParams{
+			Count:                maestrobitcoingosdk.F(int64(0)),
+			Cursor:               maestrobitcoingosdk.F("cursor"),
+			ExcludeMetaprotocols: maestrobitcoingosdk.F(true),
+			FilterDust:           maestrobitcoingosdk.F(true),
+			FilterDustThreshold:  maestrobitcoingosdk.F(int64(0)),
+			From:                 maestrobitcoingosdk.F(int64(0)),
+			Order:                maestrobitcoingosdk.F(maestrobitcoingosdk.AddressUtxoListParamsOrderAsc),
+			To:                   maestrobitcoingosdk.F(int64(0)),
 		},
 	)
 	if err != nil {
-		var apierr *maestrobitcoin.Error
+		var apierr *maestrobitcoingosdk.Error
 		if errors.As(err, &apierr) {
 			t.Log(string(apierr.DumpRequest(true)))
 		}
