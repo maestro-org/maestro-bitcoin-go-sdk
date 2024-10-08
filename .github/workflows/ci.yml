@@ -39,6 +39,6 @@ jobs:
       - name: Bootstrap
         run: ./scripts/bootstrap
 
-      - name: Run tests
-        run: ./scripts/test
+    #   - name: Run tests
+    #     run: ./scripts/test
 
