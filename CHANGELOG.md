@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.1.0-alpha.4 (2024-10-08)
+
+Full Changelog: [v0.1.0-alpha.3...v0.1.0-alpha.4](https://github.com/maestro-org/maestro-bitcoin-go-sdk/compare/v0.1.0-alpha.3...v0.1.0-alpha.4)
+
+### Features
+
+* **api:** update via SDK Studio ([#11](https://github.com/maestro-org/maestro-bitcoin-go-sdk/issues/11)) ([11a3e7b](https://github.com/maestro-org/maestro-bitcoin-go-sdk/commit/11a3e7bd6a5512e946140cded8806a5b95ea8894))
+* **api:** update via SDK Studio ([#13](https://github.com/maestro-org/maestro-bitcoin-go-sdk/issues/13)) ([636420e](https://github.com/maestro-org/maestro-bitcoin-go-sdk/commit/636420ea7e5c57129bf846858df2bf1f72614634))
+
 ## 0.1.0-alpha.3 (2024-10-08)
 
 Full Changelog: [v0.1.0-alpha.2...v0.1.0-alpha.3](https://github.com/maestro-org/maestro-bitcoin-go-sdk/compare/v0.1.0-alpha.2...v0.1.0-alpha.3)
