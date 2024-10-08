@@ -3,7 +3,7 @@
 package maestrobitcoin
 
 import (
-	"github.com/stainless-sdks/maestro-bitcoin-go/option"
+	"github.com/maestro-org/maestro-bitcoin-go-sdk/option"
 )
 
 // AssetService contains methods and other services that help with interacting with

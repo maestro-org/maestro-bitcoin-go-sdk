@@ -7,7 +7,7 @@ import (
 	"net/http"
 	"net/http/httputil"
 
-	"github.com/stainless-sdks/maestro-bitcoin-go/internal/apijson"
+	"github.com/maestro-org/maestro-bitcoin-go-sdk/internal/apijson"
 )
 
 // Error represents an error that originates from the API, i.e. when a request is

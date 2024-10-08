@@ -3,7 +3,7 @@
 package maestrobitcoin
 
 import (
-	"github.com/stainless-sdks/maestro-bitcoin-go/internal/apierror"
+	"github.com/maestro-org/maestro-bitcoin-go-sdk/internal/apierror"
 )
 
 type Error = apierror.Error

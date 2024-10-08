@@ -41,7 +41,7 @@ To use a local version of this library from source in another project, edit the 
 directive. This can be done through the CLI with the following:
 
 ```sh
-$ go mod edit -replace github.com/stainless-sdks/maestro-bitcoin-go=/path/to/maestro-bitcoin-go
+$ go mod edit -replace github.com/maestro-org/maestro-bitcoin-go-sdk=/path/to/maestro-bitcoin-go-sdk
 ```
 
 ## Running tests

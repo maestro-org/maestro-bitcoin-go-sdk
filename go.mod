@@ -1,4 +1,4 @@
-module github.com/stainless-sdks/maestro-bitcoin-go
+module github.com/maestro-org/maestro-bitcoin-go-sdk
 
 go 1.21
 

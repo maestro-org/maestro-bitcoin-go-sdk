@@ -9,11 +9,11 @@ import (
 	"net/http"
 	"net/url"
 
-	"github.com/stainless-sdks/maestro-bitcoin-go/internal/apijson"
-	"github.com/stainless-sdks/maestro-bitcoin-go/internal/apiquery"
-	"github.com/stainless-sdks/maestro-bitcoin-go/internal/param"
-	"github.com/stainless-sdks/maestro-bitcoin-go/internal/requestconfig"
-	"github.com/stainless-sdks/maestro-bitcoin-go/option"
+	"github.com/maestro-org/maestro-bitcoin-go-sdk/internal/apijson"
+	"github.com/maestro-org/maestro-bitcoin-go-sdk/internal/apiquery"
+	"github.com/maestro-org/maestro-bitcoin-go-sdk/internal/param"
+	"github.com/maestro-org/maestro-bitcoin-go-sdk/internal/requestconfig"
+	"github.com/maestro-org/maestro-bitcoin-go-sdk/option"
 )
 
 // AssetBrc20HolderService contains methods and other services that help with
