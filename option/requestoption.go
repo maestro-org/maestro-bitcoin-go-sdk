@@ -15,7 +15,7 @@ import (
 	"github.com/tidwall/sjson"
 )
 
-// RequestOption is an option for the requests made by the maestro API Client
+// RequestOption is an option for the requests made by the Maestro API Client
 // which can be supplied to clients, services, and methods. You can read more about this functional
 // options pattern in our [README].
 //
@@ -221,6 +221,13 @@ func WithRequestTimeout(dur time.Duration) RequestOption {
 	}
 }
 
+// WithEnvironmentTestnet returns a RequestOption that sets the current
+// environment to be the "testnet" environment. An environment specifies which base URL
+// to use by default.
+func WithEnvironmentTestnet() RequestOption {
+	return WithBaseURL("https://xbt-testnet.gomaestro-api.org/v0/")
+}
+
 // WithEnvironmentMainnet returns a RequestOption that sets the current
 // environment to be the "mainnet" environment. An environment specifies which base URL
 // to use by default.
@@ -228,11 +235,11 @@ func WithEnvironmentMainnet() RequestOption {
 	return WithBaseURL("https://xbt-mainnet.gomaestro-api.org/v0/")
 }
 
-// WithEnvironmentTestnet returns a RequestOption that sets the current
-// environment to be the "testnet" environment. An environment specifies which base URL
+// WithEnvironmentDefault returns a RequestOption that sets the current
+// environment to be the "default" environment. An environment specifies which base URL
 // to use by default.
-func WithEnvironmentTestnet() RequestOption {
-	return WithBaseURL("https://xbt-testnet.gomaestro-api.org/v0/")
+func WithEnvironmentDefault() RequestOption {
+	return WithBaseURL("mainnet/")
 }
 
 // WithAPIKey returns a RequestOption that sets the client setting "api_key".

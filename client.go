@@ -12,7 +12,7 @@ import (
 )
 
 // Client creates a struct with services and top level methods that help with
-// interacting with the maestro API. You should not instantiate this client
+// interacting with the Maestro API. You should not instantiate this client
 // directly, and instead use the [NewClient] method instead.
 type Client struct {
 	Options         []option.RequestOption
@@ -30,7 +30,7 @@ type Client struct {
 // default arguments, and all option will be passed down to the services and
 // requests that this client makes.
 func NewClient(opts ...option.RequestOption) (r *Client) {
-	defaults := []option.RequestOption{option.WithEnvironmentMainnet()}
+	defaults := []option.RequestOption{option.WithEnvironmentTestnet()}
 	if o, ok := os.LookupEnv("API_KEY"); ok {
 		defaults = append(defaults, option.WithAPIKey(o))
 	}
