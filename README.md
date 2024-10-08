@@ -1,11 +1,9 @@
-# Maestro Go API Library
+# Maestro Bitcoin Go SDK
 
 <a href="https://pkg.go.dev/github.com/maestro-org/maestro-bitcoin-go-sdk"><img src="https://pkg.go.dev/badge/github.com/maestro-org/maestro-bitcoin-go-sdk.svg" alt="Go Reference"></a>
 
-The Maestro Go library provides convenient access to [the Maestro REST
+The Maestro Bitcoin Go SDK provides convenient access to [the Maestro Bitcoin REST
 API](https://docs.gomaestro.org/) from applications written in Go. The full API of this library can be found in [api.md](api.md).
-
-It is generated with [Stainless](https://www.stainlessapi.com/).
 
 ## Installation
 
@@ -24,7 +22,7 @@ Or to pin the version:
 <!-- x-release-please-start-version -->
 
 ```sh
-go get -u 'github.com/maestro-org/maestro-bitcoin-go-sdk@v0.1.0-alpha.2'
+go get -u 'github.com/maestro-org/maestro-bitcoin-go-sdk@v0.1.0-alpha.3'
 ```
 
 <!-- x-release-please-end -->
@@ -53,11 +51,11 @@ func main() {
 		option.WithAPIKey("My API Key"), // defaults to os.LookupEnv("API_KEY")
 		option.WithEnvironmentMainnet(), // defaults to option.WithEnvironmentMainnet()
 	)
-	timestampedBlockchainInfo, err := client.General.Info.Get(context.TODO())
+	timestampedBlock, err := client.Blocks.Latest.Get(context.TODO())
 	if err != nil {
 		panic(err.Error())
 	}
-	fmt.Printf("%+v\n", timestampedBlockchainInfo.Data)
+	fmt.Printf("%+v\n", timestampedBlock.Data)
 }
 
 ```
@@ -146,7 +144,7 @@ client := maestrobitcoingosdk.NewClient(
 	option.WithHeader("X-Some-Header", "custom_header_info"),
 )
 
-client.General.Info.Get(context.TODO(), ...,
+client.Blocks.Latest.Get(context.TODO(), ...,
 	// Override the header
 	option.WithHeader("X-Some-Header", "some_other_custom_header_info"),
 	// Add an undocumented field to the request body, using sjson syntax
@@ -175,14 +173,14 @@ When the API returns a non-success status code, we return an error with type
 To handle errors, we recommend that you use the `errors.As` pattern:
 
 ```go
-_, err := client.General.Info.Get(context.TODO())
+_, err := client.Blocks.Latest.Get(context.TODO())
 if err != nil {
 	var apierr *maestrobitcoingosdk.Error
 	if errors.As(err, &apierr) {
 		println(string(apierr.DumpRequest(true)))  // Prints the serialized HTTP request
 		println(string(apierr.DumpResponse(true))) // Prints the serialized HTTP response
 	}
-	panic(err.Error()) // GET "/general/info": 400 Bad Request { ... }
+	panic(err.Error()) // GET "/blocks/latest": 400 Bad Request { ... }
 }
 ```
 
@@ -200,7 +198,7 @@ To set a per-retry timeout, use `option.WithRequestTimeout()`.
 // This sets the timeout for the request, including all the retries.
 ctx, cancel := context.WithTimeout(context.Background(), 5*time.Minute)
 defer cancel()
-client.General.Info.Get(
+client.Blocks.Latest.Get(
 	ctx,
 	// This sets the per-retry timeout
 	option.WithRequestTimeout(20*time.Second),
@@ -235,7 +233,7 @@ client := maestrobitcoingosdk.NewClient(
 )
 
 // Override per-request:
-client.General.Info.Get(context.TODO(), option.WithMaxRetries(5))
+client.Blocks.Latest.Get(context.TODO(), option.WithMaxRetries(5))
 ```
 
 ### Making custom/undocumented requests
