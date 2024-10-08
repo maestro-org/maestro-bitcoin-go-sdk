@@ -1,6 +1,6 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-package maestrobitcoin_test
+package maestrobitcoingosdk_test
 
 import (
 	"context"
@@ -8,9 +8,9 @@ import (
 	"os"
 	"testing"
 
-	"github.com/stainless-sdks/maestro-bitcoin-go"
-	"github.com/stainless-sdks/maestro-bitcoin-go/internal/testutil"
-	"github.com/stainless-sdks/maestro-bitcoin-go/option"
+	"github.com/maestro-org/maestro-bitcoin-go-sdk"
+	"github.com/maestro-org/maestro-bitcoin-go-sdk/internal/testutil"
+	"github.com/maestro-org/maestro-bitcoin-go-sdk/option"
 )
 
 func TestAddressRuneGetWithOptionalParams(t *testing.T) {
@@ -21,7 +21,7 @@ func TestAddressRuneGetWithOptionalParams(t *testing.T) {
 	if !testutil.CheckTestServer(t, baseURL) {
 		return
 	}
-	client := maestrobitcoin.NewClient(
+	client := maestrobitcoingosdk.NewClient(
 		option.WithBaseURL(baseURL),
 		option.WithAPIKey("My API Key"),
 	)
@@ -29,16 +29,16 @@ func TestAddressRuneGetWithOptionalParams(t *testing.T) {
 		context.TODO(),
 		"tb1qphcdyah2e4vtpxn56hsz3p6kapg90pl4x525kc",
 		"2519999:31",
-		maestrobitcoin.AddressRuneGetParams{
-			Count:  maestrobitcoin.F(int64(0)),
-			Cursor: maestrobitcoin.F("cursor"),
-			From:   maestrobitcoin.F(int64(0)),
-			Order:  maestrobitcoin.F(maestrobitcoin.AddressRuneGetParamsOrderAsc),
-			To:     maestrobitcoin.F(int64(0)),
+		maestrobitcoingosdk.AddressRuneGetParams{
+			Count:  maestrobitcoingosdk.F(int64(0)),
+			Cursor: maestrobitcoingosdk.F("cursor"),
+			From:   maestrobitcoingosdk.F(int64(0)),
+			Order:  maestrobitcoingosdk.F(maestrobitcoingosdk.AddressRuneGetParamsOrderAsc),
+			To:     maestrobitcoingosdk.F(int64(0)),
 		},
 	)
 	if err != nil {
-		var apierr *maestrobitcoin.Error
+		var apierr *maestrobitcoingosdk.Error
 		if errors.As(err, &apierr) {
 			t.Log(string(apierr.DumpRequest(true)))
 		}
@@ -54,13 +54,13 @@ func TestAddressRuneList(t *testing.T) {
 	if !testutil.CheckTestServer(t, baseURL) {
 		return
 	}
-	client := maestrobitcoin.NewClient(
+	client := maestrobitcoingosdk.NewClient(
 		option.WithBaseURL(baseURL),
 		option.WithAPIKey("My API Key"),
 	)
 	_, err := client.Addresses.Runes.List(context.TODO(), "tb1qphcdyah2e4vtpxn56hsz3p6kapg90pl4x525kc")
 	if err != nil {
-		var apierr *maestrobitcoin.Error
+		var apierr *maestrobitcoingosdk.Error
 		if errors.As(err, &apierr) {
 			t.Log(string(apierr.DumpRequest(true)))
 		}

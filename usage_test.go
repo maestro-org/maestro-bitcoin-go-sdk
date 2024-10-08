@@ -1,15 +1,15 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-package maestrobitcoin_test
+package maestrobitcoingosdk_test
 
 import (
 	"context"
 	"os"
 	"testing"
 
-	"github.com/stainless-sdks/maestro-bitcoin-go"
-	"github.com/stainless-sdks/maestro-bitcoin-go/internal/testutil"
-	"github.com/stainless-sdks/maestro-bitcoin-go/option"
+	"github.com/maestro-org/maestro-bitcoin-go-sdk"
+	"github.com/maestro-org/maestro-bitcoin-go-sdk/internal/testutil"
+	"github.com/maestro-org/maestro-bitcoin-go-sdk/option"
 )
 
 func TestUsage(t *testing.T) {
@@ -20,7 +20,7 @@ func TestUsage(t *testing.T) {
 	if !testutil.CheckTestServer(t, baseURL) {
 		return
 	}
-	client := maestrobitcoin.NewClient(
+	client := maestrobitcoingosdk.NewClient(
 		option.WithBaseURL(baseURL),
 		option.WithAPIKey("My API Key"),
 	)

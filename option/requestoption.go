@@ -11,15 +11,15 @@ import (
 	"net/url"
 	"time"
 
-	"github.com/stainless-sdks/maestro-bitcoin-go/internal/requestconfig"
+	"github.com/maestro-org/maestro-bitcoin-go-sdk/internal/requestconfig"
 	"github.com/tidwall/sjson"
 )
 
-// RequestOption is an option for the requests made by the maestro-bitcoin API Client
+// RequestOption is an option for the requests made by the maestro API Client
 // which can be supplied to clients, services, and methods. You can read more about this functional
 // options pattern in our [README].
 //
-// [README]: https://pkg.go.dev/github.com/stainless-sdks/maestro-bitcoin-go#readme-requestoptions
+// [README]: https://pkg.go.dev/github.com/maestro-org/maestro-bitcoin-go-sdk#readme-requestoptions
 type RequestOption = func(*requestconfig.RequestConfig) error
 
 // WithBaseURL returns a RequestOption that sets the BaseURL for the client.
@@ -221,17 +221,17 @@ func WithRequestTimeout(dur time.Duration) RequestOption {
 	}
 }
 
-// WithEnvironmentProduction returns a RequestOption that sets the current
-// environment to be the "production" environment. An environment specifies which base URL
+// WithEnvironmentMainnet returns a RequestOption that sets the current
+// environment to be the "mainnet" environment. An environment specifies which base URL
 // to use by default.
-func WithEnvironmentProduction() RequestOption {
+func WithEnvironmentMainnet() RequestOption {
 	return WithBaseURL("https://xbt-mainnet.gomaestro-api.org/v0/")
 }
 
-// WithEnvironmentEnvironment1 returns a RequestOption that sets the current
-// environment to be the "environment_1" environment. An environment specifies which base URL
+// WithEnvironmentTestnet returns a RequestOption that sets the current
+// environment to be the "testnet" environment. An environment specifies which base URL
 // to use by default.
-func WithEnvironmentEnvironment1() RequestOption {
+func WithEnvironmentTestnet() RequestOption {
 	return WithBaseURL("https://xbt-testnet.gomaestro-api.org/v0/")
 }
 

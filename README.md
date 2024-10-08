@@ -1,25 +1,33 @@
-# Maestro Bitcoin Go API Library
+# Maestro Go API Library
 
-<a href="https://pkg.go.dev/github.com/stainless-sdks/maestro-bitcoin-go"><img src="https://pkg.go.dev/badge/github.com/stainless-sdks/maestro-bitcoin-go.svg" alt="Go Reference"></a>
+<a href="https://pkg.go.dev/github.com/maestro-org/maestro-bitcoin-go-sdk"><img src="https://pkg.go.dev/badge/github.com/maestro-org/maestro-bitcoin-go-sdk.svg" alt="Go Reference"></a>
 
-The Maestro Bitcoin Go library provides convenient access to [the Maestro Bitcoin REST
+The Maestro Go library provides convenient access to [the Maestro REST
 API](https://docs.gomaestro.org/) from applications written in Go. The full API of this library can be found in [api.md](api.md).
 
 It is generated with [Stainless](https://www.stainlessapi.com/).
 
 ## Installation
 
+<!-- x-release-please-start-version -->
+
 ```go
 import (
-	"github.com/stainless-sdks/maestro-bitcoin-go" // imported as maestrobitcoin
+	"github.com/maestro-org/maestro-bitcoin-go-sdk" // imported as maestrobitcoingosdk
 )
 ```
 
+<!-- x-release-please-end -->
+
 Or to pin the version:
 
+<!-- x-release-please-start-version -->
+
 ```sh
-go get -u 'github.com/stainless-sdks/maestro-bitcoin-go@v0.0.1-alpha.0'
+go get -u 'github.com/maestro-org/maestro-bitcoin-go-sdk@v0.1.0-alpha.1'
 ```
+
+<!-- x-release-please-end -->
 
 ## Requirements
 
@@ -36,14 +44,14 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/stainless-sdks/maestro-bitcoin-go"
-	"github.com/stainless-sdks/maestro-bitcoin-go/option"
+	"github.com/maestro-org/maestro-bitcoin-go-sdk"
+	"github.com/maestro-org/maestro-bitcoin-go-sdk/option"
 )
 
 func main() {
-	client := maestrobitcoin.NewClient(
-		option.WithAPIKey("My API Key"),      // defaults to os.LookupEnv("API_KEY")
-		option.WithEnvironmentEnvironment1(), // defaults to option.WithEnvironmentProduction()
+	client := maestrobitcoingosdk.NewClient(
+		option.WithAPIKey("My API Key"), // defaults to os.LookupEnv("API_KEY")
+		option.WithEnvironmentTestnet(), // defaults to option.WithEnvironmentMainnet()
 	)
 	timestampedBlockchainInfo, err := client.General.Info.Get(context.TODO())
 	if err != nil {
@@ -68,18 +76,18 @@ To send a null, use `Null[T]()`, and to send a nonconforming value, use `Raw[T](
 
 ```go
 params := FooParams{
-	Name: maestrobitcoin.F("hello"),
+	Name: maestrobitcoingosdk.F("hello"),
 
 	// Explicitly send `"description": null`
-	Description: maestrobitcoin.Null[string](),
+	Description: maestrobitcoingosdk.Null[string](),
 
-	Point: maestrobitcoin.F(maestrobitcoin.Point{
-		X: maestrobitcoin.Int(0),
-		Y: maestrobitcoin.Int(1),
+	Point: maestrobitcoingosdk.F(maestrobitcoingosdk.Point{
+		X: maestrobitcoingosdk.Int(0),
+		Y: maestrobitcoingosdk.Int(1),
 
 		// In cases where the API specifies a given type,
 		// but you want to send something else, use `Raw`:
-		Z: maestrobitcoin.Raw[int64](0.01), // sends a float
+		Z: maestrobitcoingosdk.Raw[int64](0.01), // sends a float
 	}),
 }
 ```
@@ -133,7 +141,7 @@ This library uses the functional options pattern. Functions defined in the
 requests. For example:
 
 ```go
-client := maestrobitcoin.NewClient(
+client := maestrobitcoingosdk.NewClient(
 	// Adds a header to every request made by the client
 	option.WithHeader("X-Some-Header", "custom_header_info"),
 )
@@ -146,7 +154,7 @@ client.General.Info.Get(context.TODO(), ...,
 )
 ```
 
-See the [full list of request options](https://pkg.go.dev/github.com/stainless-sdks/maestro-bitcoin-go/option).
+See the [full list of request options](https://pkg.go.dev/github.com/maestro-org/maestro-bitcoin-go-sdk/option).
 
 ### Pagination
 
@@ -160,7 +168,7 @@ with additional helper methods like `.GetNextPage()`, e.g.:
 ### Errors
 
 When the API returns a non-success status code, we return an error with type
-`*maestrobitcoin.Error`. This contains the `StatusCode`, `*http.Request`, and
+`*maestrobitcoingosdk.Error`. This contains the `StatusCode`, `*http.Request`, and
 `*http.Response` values of the request, as well as the JSON of the error body
 (much like other response objects in the SDK).
 
@@ -169,7 +177,7 @@ To handle errors, we recommend that you use the `errors.As` pattern:
 ```go
 _, err := client.General.Info.Get(context.TODO())
 if err != nil {
-	var apierr *maestrobitcoin.Error
+	var apierr *maestrobitcoingosdk.Error
 	if errors.As(err, &apierr) {
 		println(string(apierr.DumpRequest(true)))  // Prints the serialized HTTP request
 		println(string(apierr.DumpResponse(true))) // Prints the serialized HTTP response
@@ -209,7 +217,7 @@ The file name and content-type can be customized by implementing `Name() string`
 string` on the run-time type of `io.Reader`. Note that `os.File` implements `Name() string`, so a
 file returned by `os.Open` will be sent with the file name on disk.
 
-We also provide a helper `maestrobitcoin.FileParam(reader io.Reader, filename string, contentType string)`
+We also provide a helper `maestrobitcoingosdk.FileParam(reader io.Reader, filename string, contentType string)`
 which can be used to wrap any `io.Reader` with the appropriate file name and content type.
 
 ### Retries
@@ -222,7 +230,7 @@ You can use the `WithMaxRetries` option to configure or disable this:
 
 ```go
 // Configure the default for all requests:
-client := maestrobitcoin.NewClient(
+client := maestrobitcoingosdk.NewClient(
 	option.WithMaxRetries(0), // default is 2
 )
 
@@ -263,9 +271,9 @@ or the `option.WithJSONSet()` methods.
 
 ```go
 params := FooNewParams{
-    ID:   maestrobitcoin.F("id_xxxx"),
-    Data: maestrobitcoin.F(FooNewParamsData{
-        FirstName: maestrobitcoin.F("John"),
+    ID:   maestrobitcoingosdk.F("id_xxxx"),
+    Data: maestrobitcoingosdk.F(FooNewParamsData{
+        FirstName: maestrobitcoingosdk.F("John"),
     }),
 }
 client.Foo.New(context.Background(), params, option.WithJSONSet("data.last_name", "Doe"))
@@ -300,7 +308,7 @@ func Logger(req *http.Request, next option.MiddlewareNext) (res *http.Response, 
     return res, err
 }
 
-client := maestrobitcoin.NewClient(
+client := maestrobitcoingosdk.NewClient(
 	option.WithMiddleware(Logger),
 )
 ```
@@ -325,7 +333,7 @@ This package generally follows [SemVer](https://semver.org/spec/v2.0.0.html) con
 
 We take backwards-compatibility seriously and work hard to ensure you can rely on a smooth upgrade experience.
 
-We are keen for your feedback; please open an [issue](https://www.github.com/stainless-sdks/maestro-bitcoin-go/issues) with questions, bugs, or suggestions.
+We are keen for your feedback; please open an [issue](https://www.github.com/maestro-org/maestro-bitcoin-go-sdk/issues) with questions, bugs, or suggestions.
 
 ## Contributing
 

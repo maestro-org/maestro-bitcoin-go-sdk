@@ -1,6 +1,6 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-package maestrobitcoin_test
+package maestrobitcoingosdk_test
 
 import (
 	"context"
@@ -10,9 +10,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/stainless-sdks/maestro-bitcoin-go"
-	"github.com/stainless-sdks/maestro-bitcoin-go/internal"
-	"github.com/stainless-sdks/maestro-bitcoin-go/option"
+	"github.com/maestro-org/maestro-bitcoin-go-sdk"
+	"github.com/maestro-org/maestro-bitcoin-go-sdk/internal"
+	"github.com/maestro-org/maestro-bitcoin-go-sdk/option"
 )
 
 type closureTransport struct {
@@ -25,7 +25,7 @@ func (t *closureTransport) RoundTrip(req *http.Request) (*http.Response, error) 
 
 func TestUserAgentHeader(t *testing.T) {
 	var userAgent string
-	client := maestrobitcoin.NewClient(
+	client := maestrobitcoingosdk.NewClient(
 		option.WithHTTPClient(&http.Client{
 			Transport: &closureTransport{
 				fn: func(req *http.Request) (*http.Response, error) {
@@ -38,14 +38,14 @@ func TestUserAgentHeader(t *testing.T) {
 		}),
 	)
 	client.General.Info.Get(context.Background())
-	if userAgent != fmt.Sprintf("MaestroBitcoin/Go %s", internal.PackageVersion) {
+	if userAgent != fmt.Sprintf("Maestro/Go %s", internal.PackageVersion) {
 		t.Errorf("Expected User-Agent to be correct, but got: %#v", userAgent)
 	}
 }
 
 func TestRetryAfter(t *testing.T) {
 	retryCountHeaders := make([]string, 0)
-	client := maestrobitcoin.NewClient(
+	client := maestrobitcoingosdk.NewClient(
 		option.WithHTTPClient(&http.Client{
 			Transport: &closureTransport{
 				fn: func(req *http.Request) (*http.Response, error) {
@@ -78,7 +78,7 @@ func TestRetryAfter(t *testing.T) {
 
 func TestDeleteRetryCountHeader(t *testing.T) {
 	retryCountHeaders := make([]string, 0)
-	client := maestrobitcoin.NewClient(
+	client := maestrobitcoingosdk.NewClient(
 		option.WithHTTPClient(&http.Client{
 			Transport: &closureTransport{
 				fn: func(req *http.Request) (*http.Response, error) {
@@ -107,7 +107,7 @@ func TestDeleteRetryCountHeader(t *testing.T) {
 
 func TestOverwriteRetryCountHeader(t *testing.T) {
 	retryCountHeaders := make([]string, 0)
-	client := maestrobitcoin.NewClient(
+	client := maestrobitcoingosdk.NewClient(
 		option.WithHTTPClient(&http.Client{
 			Transport: &closureTransport{
 				fn: func(req *http.Request) (*http.Response, error) {
@@ -136,7 +136,7 @@ func TestOverwriteRetryCountHeader(t *testing.T) {
 
 func TestRetryAfterMs(t *testing.T) {
 	attempts := 0
-	client := maestrobitcoin.NewClient(
+	client := maestrobitcoingosdk.NewClient(
 		option.WithHTTPClient(&http.Client{
 			Transport: &closureTransport{
 				fn: func(req *http.Request) (*http.Response, error) {
@@ -161,7 +161,7 @@ func TestRetryAfterMs(t *testing.T) {
 }
 
 func TestContextCancel(t *testing.T) {
-	client := maestrobitcoin.NewClient(
+	client := maestrobitcoingosdk.NewClient(
 		option.WithHTTPClient(&http.Client{
 			Transport: &closureTransport{
 				fn: func(req *http.Request) (*http.Response, error) {
@@ -180,7 +180,7 @@ func TestContextCancel(t *testing.T) {
 }
 
 func TestContextCancelDelay(t *testing.T) {
-	client := maestrobitcoin.NewClient(
+	client := maestrobitcoingosdk.NewClient(
 		option.WithHTTPClient(&http.Client{
 			Transport: &closureTransport{
 				fn: func(req *http.Request) (*http.Response, error) {
@@ -207,7 +207,7 @@ func TestContextDeadline(t *testing.T) {
 	defer cancel()
 
 	go func() {
-		client := maestrobitcoin.NewClient(
+		client := maestrobitcoingosdk.NewClient(
 			option.WithHTTPClient(&http.Client{
 				Transport: &closureTransport{
 					fn: func(req *http.Request) (*http.Response, error) {

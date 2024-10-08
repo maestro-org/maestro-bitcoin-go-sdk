@@ -1,6 +1,6 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-package maestrobitcoin_test
+package maestrobitcoingosdk_test
 
 import (
 	"context"
@@ -8,9 +8,9 @@ import (
 	"os"
 	"testing"
 
-	"github.com/stainless-sdks/maestro-bitcoin-go"
-	"github.com/stainless-sdks/maestro-bitcoin-go/internal/testutil"
-	"github.com/stainless-sdks/maestro-bitcoin-go/option"
+	"github.com/maestro-org/maestro-bitcoin-go-sdk"
+	"github.com/maestro-org/maestro-bitcoin-go-sdk/internal/testutil"
+	"github.com/maestro-org/maestro-bitcoin-go-sdk/option"
 )
 
 func TestAssetRuneGet(t *testing.T) {
@@ -21,13 +21,13 @@ func TestAssetRuneGet(t *testing.T) {
 	if !testutil.CheckTestServer(t, baseURL) {
 		return
 	}
-	client := maestrobitcoin.NewClient(
+	client := maestrobitcoingosdk.NewClient(
 		option.WithBaseURL(baseURL),
 		option.WithAPIKey("My API Key"),
 	)
 	_, err := client.Assets.Runes.Get(context.TODO(), "2519999:31")
 	if err != nil {
-		var apierr *maestrobitcoin.Error
+		var apierr *maestrobitcoingosdk.Error
 		if errors.As(err, &apierr) {
 			t.Log(string(apierr.DumpRequest(true)))
 		}
@@ -43,16 +43,16 @@ func TestAssetRuneListWithOptionalParams(t *testing.T) {
 	if !testutil.CheckTestServer(t, baseURL) {
 		return
 	}
-	client := maestrobitcoin.NewClient(
+	client := maestrobitcoingosdk.NewClient(
 		option.WithBaseURL(baseURL),
 		option.WithAPIKey("My API Key"),
 	)
-	_, err := client.Assets.Runes.List(context.TODO(), maestrobitcoin.AssetRuneListParams{
-		Count:  maestrobitcoin.F(int64(0)),
-		Cursor: maestrobitcoin.F("cursor"),
+	_, err := client.Assets.Runes.List(context.TODO(), maestrobitcoingosdk.AssetRuneListParams{
+		Count:  maestrobitcoingosdk.F(int64(0)),
+		Cursor: maestrobitcoingosdk.F("cursor"),
 	})
 	if err != nil {
-		var apierr *maestrobitcoin.Error
+		var apierr *maestrobitcoingosdk.Error
 		if errors.As(err, &apierr) {
 			t.Log(string(apierr.DumpRequest(true)))
 		}

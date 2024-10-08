@@ -4,7 +4,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/stainless-sdks/maestro-bitcoin-go/internal/param"
+	"github.com/maestro-org/maestro-bitcoin-go-sdk/internal/param"
 )
 
 type Struct struct {

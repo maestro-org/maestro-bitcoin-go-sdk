@@ -1,6 +1,6 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-package maestrobitcoin
+package maestrobitcoingosdk
 
 import (
 	"context"
@@ -9,15 +9,15 @@ import (
 	"net/http"
 	"net/url"
 
-	"github.com/stainless-sdks/maestro-bitcoin-go/internal/apijson"
-	"github.com/stainless-sdks/maestro-bitcoin-go/internal/apiquery"
-	"github.com/stainless-sdks/maestro-bitcoin-go/internal/param"
-	"github.com/stainless-sdks/maestro-bitcoin-go/internal/requestconfig"
-	"github.com/stainless-sdks/maestro-bitcoin-go/option"
+	"github.com/maestro-org/maestro-bitcoin-go-sdk/internal/apijson"
+	"github.com/maestro-org/maestro-bitcoin-go-sdk/internal/apiquery"
+	"github.com/maestro-org/maestro-bitcoin-go-sdk/internal/param"
+	"github.com/maestro-org/maestro-bitcoin-go-sdk/internal/requestconfig"
+	"github.com/maestro-org/maestro-bitcoin-go-sdk/option"
 )
 
 // AssetRuneService contains methods and other services that help with interacting
-// with the maestro-bitcoin API.
+// with the maestro API.
 //
 // Note, unlike clients, this service does not read variables from the environment
 // automatically. You should not instantiate this service directly, and instead use

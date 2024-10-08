@@ -1,13 +1,13 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-package maestrobitcoin
+package maestrobitcoingosdk
 
 import (
-	"github.com/stainless-sdks/maestro-bitcoin-go/option"
+	"github.com/maestro-org/maestro-bitcoin-go-sdk/option"
 )
 
 // GeneralService contains methods and other services that help with interacting
-// with the maestro-bitcoin API.
+// with the maestro API.
 //
 // Note, unlike clients, this service does not read variables from the environment
 // automatically. You should not instantiate this service directly, and instead use
