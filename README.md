@@ -1,9 +1,8 @@
-# Maestro Bitcoin Go SDK API Library
+# Maestro Bitcoin Go API Library
 
 <a href="https://pkg.go.dev/github.com/maestro-org/maestro-bitcoin-go-sdk"><img src="https://pkg.go.dev/badge/github.com/maestro-org/maestro-bitcoin-go-sdk.svg" alt="Go Reference"></a>
 
-The Maestro Bitcoin Go SDK library provides convenient access to [the Maestro REST
-
+The Maestro Bitcoin Go library provides convenient access to [the Maestro REST
 API](https://docs.gomaestro.org/) from applications written in Go. The full API of this library can be found in [api.md](api.md).
 
 ## Installation
