@@ -24,9 +24,13 @@ func TestUsage(t *testing.T) {
 		option.WithBaseURL(baseURL),
 		option.WithAPIKey("My API Key"),
 	)
-	timestampedBlock, err := client.Blocks.Latest.Get(context.TODO())
+	paginatedUtxo, err := client.Addresses.Utxos.List(
+		context.TODO(),
+		"REPLACE_ME",
+		maestrobitcoingosdk.AddressUtxoListParams{},
+	)
 	if err != nil {
 		t.Error(err)
 	}
-	t.Logf("%+v\n", timestampedBlock.Data)
+	t.Logf("%+v\n", paginatedUtxo.Data)
 }
