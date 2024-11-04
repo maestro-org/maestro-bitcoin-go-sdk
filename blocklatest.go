@@ -3,10 +3,6 @@
 package maestrobitcoingosdk
 
 import (
-	"context"
-	"net/http"
-
-	"github.com/maestro-org/maestro-bitcoin-go-sdk/internal/requestconfig"
 	"github.com/maestro-org/maestro-bitcoin-go-sdk/option"
 )
 
@@ -26,13 +22,5 @@ type BlockLatestService struct {
 func NewBlockLatestService(opts ...option.RequestOption) (r *BlockLatestService) {
 	r = &BlockLatestService{}
 	r.Options = opts
-	return
-}
-
-// Information about the latest block on the chain.
-func (r *BlockLatestService) Get(ctx context.Context, opts ...option.RequestOption) (res *TimestampedBlock, err error) {
-	opts = append(r.Options[:], opts...)
-	path := "blocks/latest"
-	err = requestconfig.ExecuteNewRequest(ctx, http.MethodGet, path, nil, &res, opts...)
 	return
 }
